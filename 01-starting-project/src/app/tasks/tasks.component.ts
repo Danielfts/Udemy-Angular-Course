@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { User } from '../domain/user';
 
 @Component({
@@ -10,4 +10,5 @@ import { User } from '../domain/user';
 })
 export class TasksComponent {
   selectedUser = input.required<User | null>();
+  userName = computed<string>(() => this.selectedUser()?.name ?? '');
 }
